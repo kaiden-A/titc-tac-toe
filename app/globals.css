@@ -1,26 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;700;900&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-orbitron: "Orbitron", monospace;
+  --font-rajdhani: "Rajdhani", sans-serif;
+
+  --animate-cell-pop: cell-pop 0.3s cubic-bezier(0.16,1,0.3,1);
+  --animate-win-pulse: win-pulse 0.6s ease infinite alternate;
+  --animate-fadein: fadein 0.6s cubic-bezier(0.16,1,0.3,1) both;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@keyframes cell-pop {
+  0%   { transform: scale(0.8); opacity: 0.7; }
+  50%  { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes win-pulse {
+  from { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+  to   { box-shadow: 0 0 0 8px rgba(255,255,255,0.15); }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(16px) scale(0.95); }
+  to   { opacity: 1; transform: none; }
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  overflow: hidden;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
