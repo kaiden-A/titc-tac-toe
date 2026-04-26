@@ -57,7 +57,11 @@ export default function ChooseScreen({ onChoose }: Props) {
               boxShadow: "0 0 20px rgba(91,168,255,0.25), inset 0 0 20px rgba(91,168,255,0.08)",
             }}
           >
-            A
+              <img
+                src="/athena_logo_v3.svg" // Update this with your actual image path
+                alt="Athena - Motion-U Guide Avatar"
+                className="w-full h-full object-cover" // Ensures the image fills the container beautifully
+              />
           </div>
 
           <p className="font-orbitron font-bold text-xl sm:text-2xl tracking-widest uppercase text-[#8ecfff] relative z-10">
